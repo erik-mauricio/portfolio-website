@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Card from "./component-library/Card";
 import Chip from "./component-library/Chip";
+import ExperienceInfo from "./component-library/ExperienceInfo";
 
 export default function Home() {
   const organizations = [
@@ -11,16 +12,125 @@ export default function Home() {
     "Mexsa",
     "Cornell Tradition Fellowship",
     "Horatio Alger National Scholar",
-    "Simon Scholar"
+    "Simon Scholar",
   ];
 
-  const classes = ["OOP and Data Structures",
+  const classes = [
+    "OOP and Data Structures",
     "Full Stack Development",
     "Discrete Math",
     "AI Decisions Reasoning",
-    "Language Retrieval"
-  ] 
+    "Language Retrieval",
+  ];
 
+  const languages = [
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "HTML",
+    "CSS",
+  ];
+
+  const technologies = [
+    "React",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "Flask",
+    "FastAPI",
+    "Streamlit",
+    "Tailwind CSS",
+    "Socket.io",
+    "Pandas",
+    "XGBoost",
+    "Mapbox GL",
+  ];
+
+  const tools = ["PostgreSQL", "MongoDB", "Docker", "Git", "OpenAI API"];
+
+  const experiences = [
+    {
+      company: "Cornell Hack4Impact",
+      title: "Software Developer",
+      location: "Ithaca, NY",
+      date: "Aug. 2025 – Present",
+      description:
+        "Developed a map-based web app using Mapbox GL for Rethink Food to visualize the flow of 40,000+ meals across NYC and Miami. Implemented REST APIs, dynamic visualizations, and responsive filtering components backed by a centralized PostgreSQL database.",
+      techStack: ["React", "Mapbox GL", "PostgreSQL", "Express.js", "Node.js"],
+    },
+    {
+      company: "Cornell University",
+      title: "Undergraduate Teaching Assistant",
+      location: "Ithaca, NY",
+      date: "Aug. 2025 – Present",
+      description:
+        "Led weekly lab sections and office hours for 24 students in a full-stack development course, reinforcing concepts in React, Node.js, Express.js, MongoDB, debugging, and web accessibility.",
+      techStack: ["React", "Node.js", "Express.js", "MongoDB"],
+    },
+    {
+      company: "ThinkNeuro LLC",
+      title: "Software Engineering Intern",
+      location: "Remote",
+      date: "June 2025 – Aug. 2025",
+      description:
+        "Developed a B2B license dashboard to track student enrollment, kit shipments, and engagement. Automated CSV data ingestion and designed features to flag inactive students and missing kits.",
+      techStack: ["Streamlit", "Pandas"],
+    },
+    {
+      company: "Lambda Upsilon Lambda Fraternity, Inc.",
+      title: "Chapter President",
+      location: "Ithaca, NY",
+      date: "Mar. 2025 – Present",
+      description:
+        "Directed chapter strategy, operations, and recruitment for a 6-member chapter. Organized 15+ campus events and established partnerships with 7 student organizations, increasing chapter visibility and community engagement.",
+      techStack: [],
+    },
+  ];
+
+  const projects = [
+    {
+      title: "CashPilot",
+      description:
+        "AI-powered platform that analyzes transactions to detect subscriptions, predict cash-flow risk, and generate personalized financial insights.",
+      date: "Mar. 2026 – Present",
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "FastAPI",
+        "XGBoost",
+        "Docker",
+      ],
+      github: "https://github.com/erik-mauricio/cashpilot",
+      live: "",
+    },
+    {
+      title: "Tiempos Perfectos",
+      description:
+        "Full-stack Spanish learning app with verb conjugation drills, reading comprehension exercises, and real-time AI conversation practice.",
+      date: "June 2025 – Aug. 2025",
+      techStack: [
+        "React",
+        "MongoDB",
+        "Express.js",
+        "Node.js",
+        "Tailwind CSS",
+        "Socket.io",
+      ],
+      github: "https://github.com/erik-mauricio/tiempos-perfectos",
+      live: "",
+    },
+    {
+      title: "Sports Team Finder",
+      description:
+        "Search engine that lets users discover sports teams through natural language queries powered by a custom TF-IDF and cosine similarity pipeline.",
+      date: "Feb. 2025 – Present",
+      techStack: ["Python", "Flask", "TF-IDF", "Cosine Similarity"],
+      github: "https://github.com/erik-mauricio/sports-team-finder",
+      live: "",
+    },
+  ];
 
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
@@ -77,46 +187,82 @@ export default function Home() {
 
             <p>
               Organizations I'm apart of:{" "}
-              {organizations.map((orgName, index) => (
-                <Chip skill={orgName} variant="" key={index}></Chip>
-              ))}{" "}
+              <div className="space-x-2">
+                {organizations.map((orgName, index) => (
+                  <Chip skill={orgName} variant="" key={index}></Chip>
+                ))}{" "}
+              </div>
             </p>
 
             <p>
               Classes I've taken:{" "}
+              <div className="space-x-2">
               {classes.map((className, index) => (
                 <Chip skill={className} variant="" key={index}></Chip>
               ))}{" "}
+              </div>
             </p>
           </Card>
 
           <div>
-            <h2 className="font-bold text-2xl">Skills</h2>
-          </div>
-          <div>
             <h2 className="font-bold text-2xl">Experience and Leadership</h2>
 
-            <div className="flex flex-col">
-              <div className="flex flex-row justify-evenly">
-                <h3 className="">Software Engineering Inter</h3>
-
-                <h3>Jan 2024</h3>
-              </div>
-
-              <h3 className="">Company * Loc</h3>
-
-              <p>description</p>
+            <div className="border-l-2 border-gray-300 pl-4 divide-y">
+              {experiences.map((experience, index) => (
+                <ExperienceInfo
+                  key={index}
+                  company={experience.company}
+                  title={experience.title}
+                  location={experience.location}
+                  description={experience.description}
+                  date={experience.date}
+                  techStack={experience.techStack}
+                />
+              ))}
             </div>
           </div>
 
           <div>
             <h2 className="font-bold text-2xl">Projects</h2>
           </div>
-          <footer>
-            <p>Developed by Erik Mauricio</p>
-            <p>Last updated: April 2026</p>
-          </footer>
+
+          <section>
+            <h2 className="font-bold text-2xl">Skills</h2>
+
+            <div className="space-y-2">
+              <h3>
+                <div className="space-x-2">
+                  Programming Languages:{" "}
+                  {languages.map((lang, index) => (
+                    <Chip skill={lang} variant="" key={index}></Chip>
+                  ))}{" "}
+                </div>
+              </h3>
+
+              <h3>
+                Frameworks:{" "}
+                <div className="space-x-2">
+                  {technologies.map((lang, index) => (
+                    <Chip skill={lang} variant="" key={index}></Chip>
+                  ))}
+                </div>
+              </h3>
+
+              <h3>
+                <div className="space-x-2">
+                  Developer Tools:{" "}
+                  {tools.map((lang, index) => (
+                    <Chip skill={lang} variant="" key={index}></Chip>
+                  ))}
+                </div>
+              </h3>
+            </div>
+          </section>
         </main>
+        <footer className="text-center bg-slate-700 w-full">
+          <p>Developed by Erik Mauricio</p>
+          <p>Last updated: April 2026</p>
+        </footer>
       </div>
     </>
   );
