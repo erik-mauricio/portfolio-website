@@ -10,26 +10,23 @@ type ExperienceInfoProps = {
 
 export default function ExperienceInfo({company, title, location, description, date, techStack}: ExperienceInfoProps) {
   return (
-    <div className="flex flex-col space-y-2">
-      <div className="flex justify-end">
-        <h3 className="">{title}</h3>
-
-        <h3>{date}</h3>
+    <div className="flex flex-col gap-2 py-4">
+      <div className="flex justify-between items-start">
+        <span className="font-bold text-base">{title}</span>
+        <span className="text-xs text-gray-400 shrink-0 ml-4">{date}</span>
       </div>
 
-      <h3 className="">
-        {company} * {location}
-      </h3>
+      <div className="text-sm text-gray-500">
+        {company} · {location}
+      </div>
 
-      <p>{description}</p>
+      <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
 
-      <div className="space-x-2 mb-2">
+      <div className="flex flex-wrap gap-1">
         {techStack.map((tech, index) => (
-          <Chip skill={tech} variant="" key={index}></Chip>
+          <Chip skill={tech} variant="tech" key={index}></Chip>
         ))}
       </div>
-
-
     </div>
   );
 }

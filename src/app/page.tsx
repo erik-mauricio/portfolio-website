@@ -1,28 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+
 import Card from "./component-library/Card";
 import Chip from "./component-library/Chip";
 import ExperienceInfo from "./component-library/ExperienceInfo";
 
 export default function Home() {
-  const organizations = [
-    "La Unidad Latina, Lambda Upsilon Lambda Fraternity, Inc.",
-    "SHPE",
-    "Mexsa",
-    "Cornell Tradition Fellowship",
-    "Horatio Alger National Scholar",
-    "Simon Scholar",
-  ];
-
-  const classes = [
-    "OOP and Data Structures",
-    "Full Stack Development",
-    "Discrete Math",
-    "AI Decisions Reasoning",
-    "Language Retrieval",
-  ];
-
   const languages = [
     "Python",
     "JavaScript",
@@ -104,6 +87,7 @@ export default function Home() {
       ],
       github: "https://github.com/erik-mauricio/cashpilot",
       live: "",
+      imageURI: "/images/cashpilot.png",
     },
     {
       title: "Tiempos Perfectos",
@@ -120,6 +104,7 @@ export default function Home() {
       ],
       github: "https://github.com/erik-mauricio/tiempos-perfectos",
       live: "",
+      imageURI: "/images/tiempos-perfectos.png",
     },
     {
       title: "Sports Team Finder",
@@ -129,82 +114,63 @@ export default function Home() {
       techStack: ["Python", "Flask", "TF-IDF", "Cosine Similarity"],
       github: "https://github.com/erik-mauricio/sports-team-finder",
       live: "",
+      imageURI: "/images/sports-team-finder.png",
     },
   ];
 
-  const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
-
   return (
     <>
-      <nav className="flex flex-row bg-blue-400 p-2 ">
-        <menu className="hidden flex flex-col text-center md:flex-row">
-          <a>Bio</a>
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6 bg-zinc-900 text-white px-5 py-2.5 rounded-full shadow-lg text-sm whitespace-nowrap">
+        <div className="flex items-center gap-2 pr-4 border-r border-zinc-700">
+          <span className="uppercase tracking-widest text-xs font-medium text-zinc-300">Erik Mauricio</span>
+        </div>
 
-          <a>Skills</a>
+        <div className="flex items-center gap-5">
+          <a href="#about" className="text-zinc-300 hover:text-white transition-colors">About</a>
+          <a href="#skills" className="text-zinc-300 hover:text-white transition-colors">Skills</a>
+          <a href="#work" className="text-zinc-300 hover:text-white transition-colors">Work</a>
+          <a href="#projects" className="text-zinc-300 hover:text-white transition-colors">Projects</a>
+        </div>
 
-          <a>Experience</a>
-
-          <a>Projects</a>
-        </menu>
-
-        <button
-          className="p-2 border-2 hover:bg-blue-600"
-          aria-label="Menu"
-          onClick={() => setIsHamburgerClicked(!isHamburgerClicked)}
+        <a
+          href="mailto:em882@cornell.edu"
+          className="ml-2 bg-red-800 hover:bg-red-700 transition-colors text-white font-bold px-4 py-2 rounded-full"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <rect y="4" width="24" height="2" rx="1" fill="#333" />
-            <rect y="11" width="24" height="2" rx="1" fill="#333" />
-            <rect y="18" width="24" height="2" rx="1" fill="#333" />
-          </svg>
-        </button>
+          Let's talk →
+        </a>
       </nav>
-      <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-        <main className="flex flex-1 w-full max-w-3xl flex-col  py-32 px-16 bg-white dark:bg-black sm:items-start">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl text-center">Hi, I'm Erik!</h1>
+      {/* Hero */}
+      <section id="about" className="w-full bg-zinc-950 text-white pt-32 pb-20 px-8">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-12">
+          <div className="flex flex-col gap-6 max-w-lg">
+            <h1 className="text-7xl font-bold leading-none tracking-tight">
+              Erik Mauricio.
+            </h1>
+            <p className="text-zinc-300 text-lg leading-relaxed">
+              <span className="font-bold text-white">Software engineer</span> from New York, currently at{" "}
+              <span className="font-bold text-white">Cornell</span>. I build full-stack apps and data tools
+              that quietly do the right thing — the kind of engineer you want on call when something breaks
+              at 2am.{" "}
+              <span className="text-zinc-500">(Friendly neighborhood, etc.)</span>
+            </p>
+          </div>
 
+          <div className="shrink-0">
             <Image
               src="/images/headshot.jpg"
-              alt="Erik's headshot image"
-              width={300}
-              height={300}
+              alt="Erik Mauricio"
+              width={280}
+              height={280}
+              className="rounded-2xl object-cover w-64 h-64 ring-4 ring-zinc-800"
             />
           </div>
-          <p className="">
-            My name is Erik Mauricio, and I’m a rising sophomore at Cornell
-            University studying Computer Science. I’m passionate about
-            full-stack development and artificial intelligence, with a strong
-            interest in building apps that make a positive impact on communities
-            and help students succeed.
-          </p>
-          <Card>
-            <p>Currently studying</p>
+        </div>
+      </section>
 
-            <h3>B.A. Computer Science</h3>
+      <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <main className="flex flex-1 w-full max-w-4xl flex-col gap-10 pt-12 pb-12 px-8 bg-white dark:bg-black sm:items-start">
 
-            <h3>Cornell University * Expected Grad May 2028</h3>
-
-            <p>
-              Organizations I'm apart of:{" "}
-              <div className="space-x-2">
-                {organizations.map((orgName, index) => (
-                  <Chip skill={orgName} variant="" key={index}></Chip>
-                ))}{" "}
-              </div>
-            </p>
-
-            <p>
-              Classes I've taken:{" "}
-              <div className="space-x-2">
-              {classes.map((className, index) => (
-                <Chip skill={className} variant="" key={index}></Chip>
-              ))}{" "}
-              </div>
-            </p>
-          </Card>
-
-          <div>
+          <section id="work">
             <h2 className="font-bold text-2xl">Experience and Leadership</h2>
 
             <div className="border-l-2 border-gray-300 pl-4 divide-y">
@@ -220,39 +186,74 @@ export default function Home() {
                 />
               ))}
             </div>
-          </div>
+          </section>
 
-          <div>
+          <section id="projects">
             <h2 className="font-bold text-2xl">Projects</h2>
-          </div>
 
-          <section>
+            <div className="flex flex-wrap gap-4 ">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="w-full sm:w-[calc(50%-0.5rem)] "
+                >
+                  <Card>
+                    <div className="flex flex-col gap-3">
+                      <div>
+                        <h3 className="font-bold text-base">{project.title}</h3>
+                        <span className="text-xs text-gray-400">{project.date}</span>
+                      </div>
+
+                      <p className="text-sm text-gray-600 leading-relaxed">{project.description}</p>
+
+                      <div className="flex flex-wrap gap-1">
+                        {project.techStack.map((tech, index) => (
+                          <Chip skill={tech} variant="tech" key={index}></Chip>
+                        ))}
+                      </div>
+
+                      <div className="flex gap-2 pt-1">
+                        <button className="inline-block text-xs px-3 py-1 rounded-lg border border-gray-200 text-gray-600 bg-gray-50 font-mono">
+                          Github
+                        </button>
+                        <button className="inline-block text-xs px-3 py-1 rounded-lg border border-gray-200 text-gray-600 bg-gray-50 font-mono">
+                          Live
+                        </button>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="skills">
             <h2 className="font-bold text-2xl">Skills</h2>
 
             <div className="space-y-2">
               <h3>
                 <div className="space-x-2">
-                  Programming Languages:{" "}
+                  <span className="font-bold">Programming Languages:</span>{" "}
                   {languages.map((lang, index) => (
-                    <Chip skill={lang} variant="" key={index}></Chip>
+                    <Chip skill={lang} variant="programming" key={index}></Chip>
                   ))}{" "}
                 </div>
               </h3>
 
               <h3>
-                Frameworks:{" "}
+                <span className="font-bold">Frameworks:</span>{" "}
                 <div className="space-x-2">
                   {technologies.map((lang, index) => (
-                    <Chip skill={lang} variant="" key={index}></Chip>
+                    <Chip skill={lang} variant="framework" key={index}></Chip>
                   ))}
                 </div>
               </h3>
 
               <h3>
                 <div className="space-x-2">
-                  Developer Tools:{" "}
+                  <span className="font-bold">Developer Tools:</span>{" "}
                   {tools.map((lang, index) => (
-                    <Chip skill={lang} variant="" key={index}></Chip>
+                    <Chip skill={lang} variant="tool" key={index}></Chip>
                   ))}
                 </div>
               </h3>
