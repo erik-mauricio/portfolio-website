@@ -86,66 +86,67 @@ export default function Home() {
 
   const isLight = theme === "light";
 
-  const bg          = isLight ? "bg-slate-50"  : "bg-slate-900";
-  const sectionBg   = isLight ? "bg-slate-50 text-slate-900" : "bg-slate-900 text-slate-100";
-  const heading     = isLight ? "text-slate-900" : "text-slate-100";
-  const subText     = isLight ? "text-slate-500" : "text-slate-400";
-  const bodyText    = isLight ? "text-slate-700" : "text-slate-300";
-  const accent      = isLight ? "text-[#0F4D92]" : "text-[#7ab8f5]";
-  const divider     = isLight ? "border-slate-200" : "border-slate-700/60";
-  const expDivider  = isLight ? "divide-slate-200" : "divide-slate-700/60";
-  const chipLabel   = isLight ? "font-bold text-slate-700" : "font-bold text-slate-300";
+  const bg          = isLight ? "bg-slate-50"  : "bg-[#111111]";
+  const sectionBg   = isLight ? "bg-slate-50 text-slate-900" : "bg-[#111111] text-[#e2e2e2]";
+  const heading     = isLight ? "text-slate-900" : "text-[#f0f0f0]";
+  const subText     = isLight ? "text-slate-500" : "text-[#888888]";
+  const bodyText    = isLight ? "text-slate-700" : "text-[#c4c4c4]";
+  const accent      = isLight ? "text-[#0F4D92]" : "text-[#85b8f7]";
+  const divider     = isLight ? "border-slate-200" : "border-[#2a2a2a]";
+  const expDivider  = isLight ? "divide-slate-200" : "divide-[#2a2a2a]";
+  const chipLabel   = isLight ? "font-bold text-slate-700" : "font-bold text-[#c4c4c4]";
 
-  const cardTitle  = isLight ? "text-slate-900" : "text-slate-100";
-  const cardBody   = isLight ? "text-slate-600" : "text-slate-300";
-  const cardDate   = "text-slate-400";
+  const cardTitle  = isLight ? "text-slate-900" : "text-[#f0f0f0]";
+  const cardBody   = isLight ? "text-slate-600" : "text-[#b0b0b0]";
+  const cardDate   = isLight ? "text-slate-400" : "text-[#666666]";
   const cardBtn    = isLight
     ? "border-slate-300 text-slate-500 bg-white hover:border-slate-500 hover:text-slate-800"
-    : "border-slate-600 text-slate-400 bg-slate-800 hover:border-slate-400 hover:text-slate-200";
+    : "border-[#333333] text-[#999999] bg-[#1a1a1a] hover:border-[#555555] hover:text-[#e0e0e0]";
 
-  const footerBg   = isLight ? "bg-slate-100"  : "bg-slate-900";
-  const footerText = isLight ? "text-slate-500" : "text-slate-500";
-  const footerLink = isLight ? "text-slate-600 hover:text-slate-900" : "text-slate-400 hover:text-slate-200";
-  const footerDivider = isLight ? "border-slate-300" : "border-slate-700/60";
+  const footerBg   = isLight ? "bg-slate-100"  : "bg-[#0d0d0d]";
+  const footerText = isLight ? "text-slate-500" : "text-[#555555]";
+  const footerLink = isLight ? "text-slate-600 hover:text-slate-900" : "text-[#888888] hover:text-[#cccccc]";
+  const footerDivider = isLight ? "border-slate-300" : "border-[#2a2a2a]";
 
   return (
     <>
-      {/* Nav bar */}
-      <div className="sticky top-0 z-50 flex justify-center px-4 pt-4 pb-2 bg-slate-50 dark:bg-slate-900">
+      <div className={`sticky top-0 z-50 flex justify-center px-4 pt-4 pb-2 transition-colors ${isLight ? "bg-slate-50" : "bg-[#111111]"}`}>
         <nav
           aria-label="Main navigation"
-          className="flex items-center gap-1 px-3 py-2 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800"
+          className={`flex items-center gap-1 px-3 py-2 rounded-2xl border shadow-sm transition-colors ${isLight ? "border-slate-200 bg-white" : "border-[#2a2a2a] bg-[#1a1a1a]"}`}
         >
-          <a href="#about"    className="px-3 py-1.5 rounded-xl text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Home</a>
-          <a href="#about"    className="px-3 py-1.5 rounded-xl text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700">About</a>
-          <a href="#skills"   className="px-3 py-1.5 rounded-xl text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700">Skills</a>
-          <a href="#projects" className="px-3 py-1.5 rounded-xl text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700">Projects</a>
-          <a href="#work"     className="px-3 py-1.5 rounded-xl text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700">Achievements</a>
-          <a href="mailto:em882@cornell.edu" className="px-3 py-1.5 rounded-xl text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700">Contact</a>
+          <a href="#about"    className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors ${isLight ? "text-slate-500 hover:bg-slate-100" : "text-[#888888] hover:bg-[#252525] hover:text-[#e0e0e0]"}`}>About</a>
+          <a href="#skills"   className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors ${isLight ? "text-slate-500 hover:bg-slate-100" : "text-[#888888] hover:bg-[#252525] hover:text-[#e0e0e0]"}`}>Skills</a>
+          <a href="#projects" className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors ${isLight ? "text-slate-500 hover:bg-slate-100" : "text-[#888888] hover:bg-[#252525] hover:text-[#e0e0e0]"}`}>Projects</a>
+          <a href="mailto:em882@cornell.edu" className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors ${isLight ? "text-slate-500 hover:bg-slate-100" : "text-[#888888] hover:bg-[#252525] hover:text-[#e0e0e0]"}`}>Contact</a>
         </nav>
       </div>
 
-      {/* Theme toggle */}
-      <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+
+      <div className="fixed top-6 right-4 z-50 flex items-center gap-2">
         <button
           onClick={toggleTheme}
           aria-label="Switch to dark mode"
-          className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600 hover:bg-slate-100" : "border-slate-700 bg-slate-800 text-slate-400 opacity-50 hover:opacity-100"}`}
+          className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600 hover:bg-slate-100" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#666666] opacity-50 hover:opacity-100"}`}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
         </button>
         <button
           onClick={toggleTheme}
           aria-label="Switch to light mode"
-          className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${!isLight ? "border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700" : "border-slate-200 bg-white text-slate-400 opacity-50 hover:opacity-100"}`}
+          className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${!isLight ? "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4] hover:bg-[#252525]" : "border-slate-200 bg-white text-slate-400 opacity-50 hover:opacity-100"}`}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+        </svg>
         </button>
       </div>
 
-      {/* Hero */}
+
       <section id="about" className={`w-full pt-32 pb-20 px-8 transition-colors ${sectionBg}`}>
-        <div className="max-w-4xl mx-auto flex items-center justify-between gap-12">
+        <div className="sm:flex flex-col-reverse max-w-4xl mx-auto flex items-center justify-between gap-12">
           <div className="flex flex-col gap-6 max-w-lg">
             <h1 className={`text-7xl font-bold leading-none tracking-tight ${heading}`}>
               Erik Mauricio

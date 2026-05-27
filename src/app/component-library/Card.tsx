@@ -6,7 +6,7 @@ type CardProps = {
 };
 
 const themeStyles = {
-  dark: "bg-slate-800/60 border-slate-700/50 shadow-md",
+  dark: "bg-[#1a1a1a] border-[#2a2a2a] shadow-md",
   light: "bg-white border-slate-200 shadow-sm",
 };
 

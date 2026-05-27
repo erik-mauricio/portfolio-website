@@ -13,13 +13,13 @@ type ExperienceInfoProps = {
 
 const themeStyles = {
   dark: {
-    wrapper: "divide-slate-800",
-    title: "text-white",
-    company: "text-[#7ab8f5]",
-    activeDate: "text-[#7ab8f5]",
-    inactiveDate: "text-slate-400",
-    subtitle: "text-slate-400",
-    description: "text-slate-200",
+    wrapper: "divide-[#222222]",
+    title: "text-[#f0f0f0]",
+    company: "text-[#85b8f7]",
+    activeDate: "text-[#85b8f7]",
+    inactiveDate: "text-[#666666]",
+    subtitle: "text-[#777777]",
+    description: "text-[#c0c0c0]",
   },
   light: {
     wrapper: "divide-slate-200",

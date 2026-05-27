@@ -5,13 +5,13 @@ type ChipProps = {
 };
 
 const darkVariantStyles: Record<string, string> = {
-  tech:         "border-blue-700/60  text-blue-300   bg-blue-900/40   hover:bg-blue-800/60  hover:text-blue-100",
-  class:        "border-rose-700/60  text-rose-300   bg-rose-900/40   hover:bg-rose-800/60  hover:text-rose-100",
-  org:          "border-emerald-700/60 text-emerald-300 bg-emerald-900/40 hover:bg-emerald-800/60 hover:text-emerald-100",
-  programming:  "border-sky-700/60   text-sky-300    bg-sky-900/40    hover:bg-sky-800/60   hover:text-sky-100",
-  framework:    "border-violet-700/60 text-violet-300 bg-violet-900/40 hover:bg-violet-800/60 hover:text-violet-100",
-  tool:         "border-amber-700/60  text-amber-300  bg-amber-900/40  hover:bg-amber-800/60  hover:text-amber-100",
-  "":           "border-slate-600/60  text-slate-300  bg-slate-800/40  hover:bg-slate-700/60  hover:text-slate-100",
+  tech:         "border-[#1e3a5f] text-[#7ab4f0] bg-[#0f1e30] hover:bg-[#152840] hover:text-[#a8d0ff]",
+  class:        "border-[#5f1e1e] text-[#f09090] bg-[#300f0f] hover:bg-[#401515] hover:text-[#ffc0c0]",
+  org:          "border-[#1a4a2e] text-[#70c090] bg-[#0e2818] hover:bg-[#143520] hover:text-[#a0ddb8]",
+  programming:  "border-[#1a3f5c] text-[#6ab2e8] bg-[#0e1f30] hover:bg-[#132a40] hover:text-[#9ed0ff]",
+  framework:    "border-[#3a1f5c] text-[#b08ae0] bg-[#1e1030] hover:bg-[#2a1540] hover:text-[#cdb0ff]",
+  tool:         "border-[#4a3510] text-[#d4a85a] bg-[#261a08] hover:bg-[#33230a] hover:text-[#f0c880]",
+  "":           "border-[#2a2a2a] text-[#999999] bg-[#181818] hover:bg-[#222222] hover:text-[#cccccc]",
 };
 
 const lightVariantStyles: Record<string, string> = {
@@ -27,7 +27,7 @@ const lightVariantStyles: Record<string, string> = {
 export default function Chip({ skill, variant, theme = "dark" }: ChipProps) {
   const styles = theme === "light" ? lightVariantStyles : darkVariantStyles;
   const colorClasses = styles[variant] ?? styles[""];
-  const ringOffset = theme === "light" ? "focus-visible:ring-offset-white" : "focus-visible:ring-offset-slate-900";
+  const ringOffset = theme === "light" ? "focus-visible:ring-offset-white" : "focus-visible:ring-offset-[#111111]";
   return (
     <span
       className={`inline-block text-xs px-3 py-1 rounded-lg border font-mono transition-colors cursor-default focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ${ringOffset} ${colorClasses}`}
