@@ -4,7 +4,7 @@ type ExperienceInfoProps = {
   company: string;
   title: string;
   subtitle: string;
-  description: string;
+  description: string[];
   date: string;
   isActive: boolean;
   techStack: string[];
@@ -48,7 +48,11 @@ export default function ExperienceInfo({ company, title, subtitle, description, 
 
       <p className={`text-xs uppercase tracking-widest ${s.subtitle}`}>{subtitle}</p>
 
-      <p className={`text-base leading-relaxed ${s.description}`}>{description}</p>
+      <ul className={`list-disc list-outside ml-4 flex flex-col gap-1.5 text-base leading-relaxed ${s.description}`}>
+        {description.map((point, i) => (
+          <li key={i}>{point}</li>
+        ))}
+      </ul>
 
       {techStack.length > 0 && (
         <div className="flex flex-wrap gap-1" role="list" aria-label="Technologies used">
