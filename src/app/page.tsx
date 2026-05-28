@@ -296,7 +296,7 @@ export default function Home() {
                 key={label}
                 href={`#${label.toLowerCase()}`}
                 onClick={() => setMenuOpen(false)}
-                className={`px-6 py-3 text-sm font-medium border-b last:border-0 transition-colors ${isLight ? "border-slate-100 text-slate-600 hover:bg-slate-100" : "border-[#1e1e1e] text-[#888888] hover:bg-[#1a1a1a] hover:text-[#e0e0e0]"}`}
+                className={`px-6 text-sm font-medium border-b last:border-0 transition-colors min-h-11 flex items-center ${isLight ? "border-slate-100 text-slate-600 hover:bg-slate-100" : "border-[#1e1e1e] text-[#888888] hover:bg-[#1a1a1a] hover:text-[#e0e0e0]"}`}
               >
                 {label}
               </a>
@@ -339,11 +339,11 @@ export default function Home() {
                 className="rounded-2xl object-cover w-64 h-64 transition-transform duration-500 ease-out hover:scale-110"
               />
             </div>
-            <div className="order-2 flex items-center gap-5">
+            <div className="order-2 flex items-center gap-2">
               <a
                 href="mailto:em882@cornell.edu"
                 aria-label="Email Erik Mauricio"
-                className={`text-4xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
+                className={`w-11 h-11 flex items-center justify-center text-3xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
               >
                 <FaEnvelope />
               </a>
@@ -352,7 +352,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Erik Mauricio GitHub"
-                className={`text-4xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
+                className={`w-11 h-11 flex items-center justify-center text-3xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
               >
                 <FaGithub />
               </a>
@@ -361,7 +361,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Erik Mauricio LinkedIn"
-                className={`text-4xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
+                className={`w-11 h-11 flex items-center justify-center text-3xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
               >
                 <FaLinkedin />
               </a>
@@ -445,7 +445,7 @@ export default function Home() {
                           href={project.github}
                           target="_blank"
                           rel="noreferrer"
-                          className={`inline-block text-xs px-3 py-1 rounded-lg border font-mono transition-colors ${cardBtn}`}
+                          className={`inline-flex items-center text-sm px-6 py-2 min-h-11 rounded-2xl border font-medium tracking-wide transition-colors ${cardBtn}`}
                         >
                           Github
                         </a>
@@ -454,7 +454,7 @@ export default function Home() {
                             href={project.live}
                             target="_blank"
                             rel="noreferrer"
-                            className={`inline-block text-xs px-3 py-1 rounded-lg border font-mono transition-colors ${cardBtn}`}
+                            className={`inline-flex items-center text-sm px-6 py-2 min-h-11 rounded-2xl border font-medium tracking-wide transition-colors ${cardBtn}`}
                           >
                             Live
                           </a>
@@ -531,7 +531,7 @@ export default function Home() {
                 <a
                   key={label}
                   href={href}
-                  className={`transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none rounded ${isLight ? "hover:text-slate-900" : "hover:text-[#cccccc]"}`}
+                  className={`min-h-11 flex items-center transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none rounded ${isLight ? "hover:text-slate-900" : "hover:text-[#cccccc]"}`}
                 >
                   {label}
                 </a>
