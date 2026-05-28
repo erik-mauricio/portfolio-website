@@ -526,7 +526,7 @@ export default function Home() {
                   href: "https://www.linkedin.com/in/erikmauricio/",
                 },
                 { label: "Email", href: "mailto:em882@cornell.edu" },
-                { label: "Resume", href: "/Erik_Mauricio_Resume.pdf" },
+                { label: "Resume", href: "/images/Erik_Mauricio_Resume.pdf" },
               ].map(({ label, href }) => (
                 <a
                   key={label}
