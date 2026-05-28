@@ -213,12 +213,7 @@ export default function Home() {
               {label}
             </a>
           ))}
-          <a
-            href="mailto:em882@cornell.edu"
-            className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors ${navLink}`}
-          >
-            Contact
-          </a>
+        
         </nav>
       </div>
 
