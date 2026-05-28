@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import Card from "./component-library/Card";
@@ -9,6 +10,7 @@ import { useTheme } from "./context/ThemeContext";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const languages = [
     "Python",
@@ -198,7 +200,7 @@ export default function Home() {
   return (
     <>
       <div
-        className={`sticky top-0 z-50 flex justify-center px-4 pt-4 pb-2 transition-colors ${isLight ? "bg-slate-50" : "bg-[#111111]"}`}
+        className={`sticky top-0 z-50 hidden md:flex justify-center px-4 pt-4 pb-2 transition-colors ${isLight ? "bg-slate-50" : "bg-[#111111]"}`}
       >
         <nav
           aria-label="Main navigation"
@@ -213,29 +215,17 @@ export default function Home() {
               {label}
             </a>
           ))}
-        
         </nav>
       </div>
 
-      <div className="fixed top-6 right-4 z-50 flex items-center gap-2">
+      <div className="fixed top-6 right-4 z-50 hidden md:flex items-center gap-2">
         <button
           onClick={toggleTheme}
           aria-label="Switch to dark mode"
           className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600 hover:bg-slate-100" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#666666] opacity-50 hover:opacity-100"}`}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
           </svg>
         </button>
         <button
@@ -243,21 +233,65 @@ export default function Home() {
           aria-label="Switch to light mode"
           className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${!isLight ? "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4] hover:bg-[#252525]" : "border-slate-200 bg-white text-slate-400 opacity-50 hover:opacity-100"}`}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
         </button>
+      </div>
+
+
+      <div className={`sticky top-0 z-50 md:hidden transition-colors ${isLight ? "bg-slate-50" : "bg-[#111111]"}`}>
+        <div className={`flex items-center justify-between px-4 py-3 border-b ${isLight ? "border-slate-200" : "border-[#2a2a2a]"}`}>
+          <span className={`text-sm font-semibold tracking-tight ${isLight ? "text-slate-800" : "text-[#e2e2e2]"}`}>
+            Erik Mauricio
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4]"}`}
+            >
+              {isLight ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                </svg>
+              )}
+            </button>
+            <button
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+              className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4]"}`}
+            >
+              {menuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+        {menuOpen && (
+          <nav aria-label="Mobile navigation" className={`flex flex-col border-b ${isLight ? "border-slate-200 bg-slate-50" : "border-[#2a2a2a] bg-[#111111]"}`}>
+            {["About", "Skills", "Projects", "Experience"].map((label) => (
+              <a
+                key={label}
+                href={`#${label.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className={`px-6 py-3 text-sm font-medium border-b last:border-0 transition-colors ${isLight ? "border-slate-100 text-slate-600 hover:bg-slate-100" : "border-[#1e1e1e] text-[#888888] hover:bg-[#1a1a1a] hover:text-[#e0e0e0]"}`}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        )}
       </div>
 
       <section
