@@ -48,11 +48,9 @@ export default function ExperienceInfo({ company, title, subtitle, description, 
 
       <p className={`text-xs uppercase tracking-widest ${s.subtitle}`}>{subtitle}</p>
 
-      <ul className={`list-disc list-outside ml-4 flex flex-col gap-1.5 text-base leading-relaxed ${s.description}`}>
-        {description.map((point, i) => (
-          <li key={i}>{point}</li>
-        ))}
-      </ul>
+      <p className={`text-base leading-relaxed ${s.description}`}>
+        {description}
+      </p>
 
       {techStack.length > 0 && (
         <div className="flex flex-wrap gap-1" role="list" aria-label="Technologies used">

@@ -57,9 +57,12 @@ export default function Home() {
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        "Developed REST API endpoints for restaurants, Community-Based Organizations (CBOs), and meal-provider relationships, joining data across 3 relational database tables to power dynamic sidebar and popup components for 204 partner organizations.",
-        "Integrated Mapbox and Geocoding APIs to convert street addresses to coordinates, rendering color-coded markers for 135 CBOs and 69 restaurants across 5 NYC boroughs serving 30,000 meals/week.",
-        "Designed interactive CBO-Restaurant relationship visualization using Deck.gl, rendering curved arrows to trace meal supply chains and a priority-ordered tag system highlighting underserved communities by poverty threshold.",
+        `Built the backend infrastructure for a NYC meal-equity mapping platform, 
+        developing REST API endpoints that join data across three relational tables to power 
+        interactive sidebar and popup components for 204 partner organizations. 
+        Integrated Mapbox and Geocoding APIs to render color-coded markers for 135 CBOs and 69 restaurants 
+        across all five NYC boroughs, and designed a Deck.gl supply chain visualization using curved arrows and 
+        a poverty-threshold tag system to highlight underserved communities.`,
       ],
       techStack: ["Next.js", "Mapbox GL", "PostgreSQL"],
     },
@@ -70,10 +73,19 @@ export default function Home() {
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        "Led weekly lab sections and office hours for 20+ students in a full-stack development course (React, Node.js, Express.js, MongoDB), facilitating hands-on exercises and debugging sessions.",
-        "Evaluated assignments and provided individualized feedback on 50+ student submissions, improving code quality and reinforcing core full-stack development concepts.",
+        `Support 20+ students weekly in INFO 2300, Cornell's full-stack development course, 
+        leading lab sections and office hours covering React, Node.js, Express.js, and MongoDB. 
+        Evaluate 50+ submissions per cycle, providing individualized feedback aimed at strengthening 
+        students' understanding of full-stack architecture.`,
       ],
-      techStack: ["React", "Node", "Express", "MongoDB", "Debugging", "Teaching"],
+      techStack: [
+        "React",
+        "Node",
+        "Express",
+        "MongoDB",
+        "Debugging",
+        "Teaching",
+      ],
     },
     {
       company: "ThinkNeuro LLC",
@@ -82,8 +94,10 @@ export default function Home() {
       date: "Jun. 2025 – Aug. 2025",
       isActive: false,
       description: [
-        "Developed a B2B license dashboard using Streamlit and Python to track student enrollment, kit shipments, and engagement across partner institutions.",
-        "Automated CSV data ingestion and cleaning pipelines with Pandas, replacing a manual workflow and automatically flagging inactive records and data quality issues.",
+        `Designed and built a B2B license dashboard in Streamlit and Python for an edtech startup, 
+        giving partner institutions real-time visibility into student enrollment, kit shipments, and 
+        engagement metrics. Automated CSV ingestion and cleaning pipelines with Pandas, replacing a 
+        fully manual workflow and introducing automatic flagging of inactive records and data quality issues.`,
       ],
       techStack: ["Streamlit", "Pandas", "Python"],
     },
@@ -94,14 +108,11 @@ export default function Home() {
       date: "May 2026 – Present",
       isActive: true,
       description: [
-        `Manage Cornell SHPE’s corporate sponsorship pipeline by coordinating outreach, 
-        maintaining relationships with 20+ companies, and tracking sponsorship commitments 
-        for the 2026–2027 academic year. `,
-        `Coordinate professional development and corporate engagement initiatives, including 
-        networking events, information sessions, and recruiting programs for ~30+ members`,
-        `Oversee corporate communications and operational workflows by organizing sponsorship
-        records and invoices, responding to partners within 24 hours, and promoting career opportunities 
-        through member communication channels.`,
+        `Lead Cornell SHPE's corporate partnerships by managing outreach and relationships with 20+ 
+        companies while tracking sponsorship commitments for the 2026-2027 academic year. 
+        Organize professional development programming including networking nights, info sessions, and
+         recruiting events for 30+ members, and oversee all corporate communications, ensuring partner
+          responses within 24 hours and keeping sponsorship records and invoices organized end-to-end.`,
       ],
       techStack: [],
     },
@@ -312,8 +323,8 @@ export default function Home() {
               AI, NLP, and full-stack engineering by building backend systems,
               retrieval pipelines, and LLM-integrated products. Outside of
               engineering, I serve as Corporate Chair for my SHPE chapter, and
-              spend my time at the gym, watching Barcelona FC and El Tri, and
-              listening to music. Currently, I&apos;m seeking a Summer 2027 internship in
+              spend my time at the gym, watching Barcelona FC, and
+              listening to Drake. Currently, I&apos;m seeking a Summer 2027 internship in
               software engineering.
             </p>
           </div>
