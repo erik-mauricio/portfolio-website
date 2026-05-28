@@ -296,7 +296,7 @@ export default function Home() {
                 key={label}
                 href={`#${label.toLowerCase()}`}
                 onClick={() => setMenuOpen(false)}
-                className={`px-6 text-sm font-medium border-b last:border-0 transition-colors min-h-11 flex items-center ${isLight ? "border-slate-100 text-slate-600 hover:bg-slate-100" : "border-[#1e1e1e] text-[#888888] hover:bg-[#1a1a1a] hover:text-[#e0e0e0]"}`}
+                className={`px-6 text-base font-medium border-b last:border-0 transition-colors min-h-16 flex items-center ${isLight ? "border-slate-100 text-slate-600 hover:bg-slate-100" : "border-[#1e1e1e] text-[#888888] hover:bg-[#1a1a1a] hover:text-[#e0e0e0]"}`}
               >
                 {label}
               </a>
