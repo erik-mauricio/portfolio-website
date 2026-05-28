@@ -131,7 +131,7 @@ export default function Home() {
     },
     {
       title: "LeetCode Agent",
-      description: `A CLI tool that uses Claude&apos;s API to log your LeetCode attempts, 
+      description: `A CLI tool that uses Claude API to log your LeetCode attempts, 
         identify weak topics, and recommend what to practice next.`,
       date: "June 2025 – Aug. 2025",
       techStack: ["Python", "Claude API"],
