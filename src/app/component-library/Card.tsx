@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 type CardProps = {
   children: ReactNode;
   theme?: "dark" | "light";
+  className?: string;
 };
 
 const themeStyles = {
@@ -10,9 +11,13 @@ const themeStyles = {
   light: "bg-white border-slate-200 shadow-sm",
 };
 
-export default function Card({ children, theme = "dark" }: CardProps) {
+export default function Card({
+  children,
+  theme = "dark",
+  className = "",
+}: CardProps) {
   return (
-    <div className={`rounded-xl p-4 border ${themeStyles[theme]}`}>
+    <div className={`rounded-xl p-4 border ${themeStyles[theme]} ${className}`}>
       {children}
     </div>
   );

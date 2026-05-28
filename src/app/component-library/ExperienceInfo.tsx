@@ -18,7 +18,7 @@ const themeStyles = {
     company: "text-[#85b8f7]",
     activeDate: "text-[#85b8f7]",
     inactiveDate: "text-[#666666]",
-    subtitle: "text-[#777777]",
+    subtitle: "text-[#aaaaaa]",
     description: "text-[#c0c0c0]",
   },
   light: {
