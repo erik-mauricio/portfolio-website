@@ -324,8 +324,8 @@ export default function Home() {
               retrieval pipelines, and LLM-integrated products. Outside of
               engineering, I serve as Corporate Chair for my SHPE chapter, and
               spend my time at the gym, watching Barcelona FC, and
-              listening to Drake. Currently, I&apos;m seeking a Summer 2027 internship in
-              software engineering.
+              listening to Drake. Currently, I&apos;m seeking a Summer 2026/2027 internship in
+              software or data engineering.
             </p>
           </div>
 
