@@ -1,55 +1,65 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import Card from "./component-library/Card";
 import Chip from "./component-library/Chip";
 import ExperienceInfo from "./component-library/ExperienceInfo";
+import Reveal from "./component-library/Reveal";
 import { useTheme } from "./context/ThemeContext";
+import { profileLinks } from "./data/profile";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const isDark = theme === "oxford";
 
   const languages = [
     "Python",
-    "JavaScript",
-    "TypeScript",
     "Java",
-    "SQL",
-    "HTML",
-    "CSS",
+    "TypeScript",
+    "JavaScript",
+    "PostgreSQL",
+    "MSSQL",
+    "MongoDB",
+    "HTML/CSS",
   ];
 
   const technologies = [
     "React",
     "Next.js",
     "Node.js",
+    "FastAPI",
     "Express.js",
     "Flask",
-    "Streamlit",
-    "Tailwind CSS",
-    "Socket.io",
-    "Pandas",
+    "PyTest",
     "NumPy",
-    "Mapbox GL",
+    "Tailwind CSS",
   ];
 
   const tools = [
-    "PostgreSQL",
-    "MongoDB",
-    "Docker",
     "Git",
+    "Docker",
+    "AWS",
     "REST APIs",
-    "OpenAI API",
-    "Claude Code",
+    "WebSockets",
     "RAG",
-    "TF-IDF",
-    "Word2Vec",
+    "Claude Code",
+    "OpenAI API",
   ];
 
   const experiences = [
+    {
+      company: "County of Orange",
+      title: "Data Engineer Intern",
+      subtitle: "Santa Ana, CA",
+      date: "May 2026 – Aug. 2026",
+      isActive: false,
+      description: [
+        "Built a full-stack Next.js data intake app with SSO, eliminating 60+ hours of annual Excel cleanup across 100 performance measures, and designed a normalized MSSQL database powering a real-time Power BI dashboard for 3M residents.",
+      ],
+      techStack: ["Next.js", "MSSQL", "Power BI"],
+    },
     {
       company: "Cornell Hack4Impact",
       title: "Software Developer",
@@ -57,49 +67,20 @@ export default function Home() {
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        `Built the backend infrastructure for a NYC meal-equity mapping platform, 
-        developing REST API endpoints that join data across three relational tables to power 
-        interactive sidebar and popup components for 204 partner organizations. 
-        Integrated Mapbox and Geocoding APIs to render color-coded markers for 135 CBOs and 69 restaurants 
-        across all five NYC boroughs, and designed a Deck.gl supply chain visualization using curved arrows and 
-        a poverty-threshold tag system to highlight underserved communities.`,
+        "Build full-stack features for Rethink Food's nonprofit platform, including Next.js map components and Mapbox-powered views for 204 partner organizations, plus a Deck.gl visualization modeling food distribution serving 30K meals weekly.",
       ],
-      techStack: ["Next.js", "Mapbox GL", "PostgreSQL"],
+      techStack: ["Next.js", "Mapbox GL", "Deck.gl"],
     },
     {
       company: "Cornell University",
-      title: "Undergraduate Teaching Assistant",
+      title: "Web Development Undergraduate Teaching Assistant",
       subtitle: "INFO 2300 · FULL-STACK DEV",
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        `Support 20+ students weekly in INFO 2300, Cornell's full-stack development course, 
-        leading lab sections and office hours covering React, Node.js, Express.js, and MongoDB. 
-        Evaluate 50+ submissions per cycle, providing individualized feedback aimed at strengthening 
-        students' understanding of full-stack architecture.`,
+        "Lead weekly labs and office hours across 3 terms for 40+ students, supporting full-stack development exercises and projects.",
       ],
-      techStack: [
-        "React",
-        "Node",
-        "Express",
-        "MongoDB",
-        "Debugging",
-        "Teaching",
-      ],
-    },
-    {
-      company: "ThinkNeuro LLC",
-      title: "Software Engineering Intern",
-      subtitle: "REMOTE · EDTECH",
-      date: "Jun. 2025 – Aug. 2025",
-      isActive: false,
-      description: [
-        `Designed and built a B2B license dashboard in Streamlit and Python for an edtech startup, 
-        giving partner institutions real-time visibility into student enrollment, kit shipments, and 
-        engagement metrics. Automated CSV ingestion and cleaning pipelines with Pandas, replacing a 
-        fully manual workflow and introducing automatic flagging of inactive records and data quality issues.`,
-      ],
-      techStack: ["Streamlit", "Pandas", "Python"],
+      techStack: ["React", "Node", "Express", "MongoDB"],
     },
     {
       company: "SHPE",
@@ -108,11 +89,7 @@ export default function Home() {
       date: "May 2026 – Present",
       isActive: true,
       description: [
-        `Lead Cornell SHPE's corporate partnerships by managing outreach and relationships with 20+ 
-        companies while tracking sponsorship commitments for the 2026-2027 academic year. 
-        Organize professional development programming including networking nights, info sessions, and
-         recruiting events for 30+ members, and oversee all corporate communications, ensuring partner
-          responses within 24 hours and keeping sponsorship records and invoices organized end-to-end.`,
+        "Secured 4 corporate sponsorships and planned 3 recruiting and professional development events through outreach to 80+ companies.",
       ],
       techStack: [],
     },
@@ -120,19 +97,27 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Sports Team Finder",
+      title: "Sports Discovery Engine",
       description:
-        "Search engine that lets users discover sports teams through natural language queries powered by a custom TF-IDF and cosine similarity pipeline.",
+        "Full-stack sports discovery engine that interprets natural-language queries through a hybrid BM25/SVD/RAG pipeline, beating the strongest lexical baseline by 24.6% higher NDCG@10.",
       date: "Feb. 2025 – Present",
-      techStack: ["Python", "Flask", "TF-IDF", "Cosine Similarity", "SVD", "RAG", "LLM"],
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "Python",
+        "PyTest",
+        "BM25",
+        "SVD/LSA",
+        "RAG",
+      ],
       github: "https://github.com/moonlightplague/4300-Sports-Team-Finder",
       live: "https://sports-team-finder.4300showcase.infosci.cornell.edu/",
       imageURI: "/images/sportsteamfinder.png",
     },
     {
       title: "LeetCode Agent",
-      description: `A CLI tool that uses Claude API to log your LeetCode attempts, 
-        identify weak topics, and recommend what to practice next.`,
+      description:
+        "CLI tool powered by the Claude API that logs LeetCode attempts, identifies weak topics, and recommends what to practice next.",
       date: "June 2025 – Aug. 2025",
       techStack: ["Python", "Claude API"],
       github: "https://github.com/erik-mauricio/leetcode-agent",
@@ -141,8 +126,8 @@ export default function Home() {
     },
     {
       title: "Rethink Food",
-      description: `Full-stack interactive map platform visualizing NYC meal supply chains across 
-      204 partner organizations, serving 30,000 meals weekly across all five boroughs.`,
+      description:
+        "Full-stack interactive map platform visualizing NYC meal supply chains across 204 partner organizations, serving 30,000 meals weekly across all five boroughs.",
       date: "June 2025 – Aug. 2025",
       techStack: [
         "Next.js",
@@ -158,15 +143,15 @@ export default function Home() {
     {
       title: "Tiempos Perfectos",
       description:
-        "Full-stack Spanish learning app with verb conjugation drills, reading comprehension exercises, and real-time AI conversation practice.",
+        "Full-stack adaptive English-learning app that models learner mastery with Bayesian Knowledge Tracing and adapts real-time AI speaking practice via FastAPI WebSockets.",
       date: "June 2025 – Aug. 2025",
       techStack: [
         "React",
-        "MongoDB",
-        "Express.js",
-        "Node.js",
         "Tailwind CSS",
-        "Socket.io",
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
       ],
       github: "https://github.com/erik-mauricio/tiempos-perfectos",
       live: "",
@@ -174,295 +159,269 @@ export default function Home() {
     },
     {
       title: "Pelvic Health Association",
-      description: `A centralized web platform serving as PPAC's digital hub for pelvic pain resources, 
-        provider directories, educational content, and community events for Cornell. `,
+      description:
+        "Centralized web platform serving as PPAC's digital hub for pelvic pain resources, provider directories, educational content, and community events at Cornell.",
       date: "June 2025 – Aug. 2025",
-      techStack: [
-        "React",
-        "MongoDB",
-        "Express.js",
-        "Node.js",
-        "SCSS",
-      ],
+      techStack: ["React", "MongoDB", "Express.js", "Node.js", "SCSS"],
       github: "https://github.com/cornellh4i/PPAC",
       live: "",
       imageURI: "/images/ppac.png",
     },
   ];
 
-  const isLight = theme === "light";
-
-  const bg = isLight ? "bg-slate-50 text-slate-900" : "bg-[#111111] text-[#e2e2e2]";
-  const heading = isLight ? "text-slate-900" : "text-[#f0f0f0]";
-  const subText = isLight ? "text-slate-500" : "text-[#888888]";
-  const bodyText = isLight ? "text-slate-700" : "text-[#c4c4c4]";
-  const divider = isLight ? "border-slate-200" : "border-[#2a2a2a]";
-  const chipLabel = isLight ? "font-bold text-slate-700" : "font-bold text-[#c4c4c4]";
-  const cardBtn = isLight
-    ? "border-slate-300 text-slate-500 bg-white hover:border-slate-500 hover:text-slate-800"
-    : "border-[#333333] text-[#999999] bg-[#1a1a1a] hover:border-[#555555] hover:text-[#e0e0e0]";
-  const navLink = isLight
-    ? "text-slate-500 hover:bg-slate-100"
-    : "text-[#888888] hover:bg-[#252525] hover:text-[#e0e0e0]";
-  const navBar = isLight
-    ? "border-slate-200 bg-white"
-    : "border-[#2a2a2a] bg-[#1a1a1a]";
+  const navLinks = ["About", "Skills", "Projects", "Experience"];
 
   return (
     <>
-      <div
-        className={`sticky top-0 z-50 hidden md:flex justify-center px-4 pt-4 pb-2 transition-colors ${isLight ? "bg-slate-50" : "bg-[#111111]"}`}
-      >
-        <nav
-          aria-label="Main navigation"
-          className={`flex items-center gap-1 px-3 py-2 rounded-2xl border shadow-sm transition-colors ${navBar}`}
-        >
-          {["About", "Skills", "Projects", "Experience"].map((label) => (
-            <a
-              key={label}
-              href={`#${label.toLowerCase()}`}
-              className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors ${navLink}`}
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      <div className="fixed top-6 right-4 z-50 hidden md:flex items-center gap-2">
-        <button
-          onClick={toggleTheme}
-          aria-label="Switch to dark mode"
-          className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600 hover:bg-slate-100" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#666666] opacity-50 hover:opacity-100"}`}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-          </svg>
-        </button>
-        <button
-          onClick={toggleTheme}
-          aria-label="Switch to light mode"
-          className={`w-8 h-8 flex items-center justify-center rounded-full border transition-colors ${!isLight ? "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4] hover:bg-[#252525]" : "border-slate-200 bg-white text-slate-400 opacity-50 hover:opacity-100"}`}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-          </svg>
-        </button>
-      </div>
-
-
-      <div className={`sticky top-0 z-50 md:hidden transition-colors ${isLight ? "bg-slate-50" : "bg-[#111111]"}`}>
-        <div className={`flex items-center justify-between px-4 py-3 border-b ${isLight ? "border-slate-200" : "border-[#2a2a2a]"}`}>
-          <span className={`text-base font-semibold tracking-tight ${isLight ? "text-slate-800" : "text-[#e2e2e2]"}`}>
-            Erik Mauricio
-          </span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className={`w-11 h-11 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4]"}`}
-            >
-              {isLight ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                </svg>
-              )}
-            </button>
-            <button
-              onClick={() => setMenuOpen((o) => !o)}
-              aria-label="Toggle menu"
-              className={`w-11 h-11 flex items-center justify-center rounded-full border transition-colors ${isLight ? "border-slate-200 bg-white text-slate-600" : "border-[#2a2a2a] bg-[#1a1a1a] text-[#c4c4c4]"}`}
-            >
-              {menuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              )}
-            </button>
+      <div className="sticky top-0 z-50 hidden md:flex w-full justify-center bg-base-100/90 px-4 py-3 backdrop-blur transition-colors">
+        <div className="navbar w-auto rounded-full border border-base-300 bg-base-200 px-3 py-1">
+          <div className="navbar-center">
+            <ul className="menu menu-horizontal gap-1">
+              {navLinks.map((label) => (
+                <li key={label}>
+                  <a href={`#${label.toLowerCase()}`} className="rounded-xl text-sm font-medium">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="navbar-end ml-2">
+            <label className="swap swap-rotate btn btn-ghost btn-circle btn-sm">
+              <input
+                type="checkbox"
+                checked={isDark}
+                onChange={toggleTheme}
+                aria-label="Toggle theme"
+              />
+              <svg
+                className="swap-on size-5 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5.64 17l-.71.71a1 1 0 101.41 1.41l.71-.71A1 1 0 005.64 17zM5 12a1 1 0 00-1-1H3a1 1 0 100 2h1a1 1 0 001-1zm8-9a1 1 0 00-1 1v1a1 1 0 102 0V4a1 1 0 00-1-1zm7.66 2.34a1 1 0 00-1.41 0l-.71.71a1 1 0 101.41 1.41l.71-.71a1 1 0 000-1.41zM17 5.64a1 1 0 00.71-.29l.71-.71a1 1 0 10-1.41-1.41l-.71.71A1 1 0 0017 5.64zM12 6a6 6 0 100 12 6 6 0 000-12zm9 5h-1a1 1 0 100 2h1a1 1 0 100-2zm-3.36 6.36a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41-1.41zM12 18a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" />
+              </svg>
+              <svg
+                className="swap-off size-5 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.7-3.4 1 1 0 00-1.31-1.31 10.14 10.14 0 108.73 18.3 10.1 10.1 0 005.5-5.1 1 1 0 00-.06-.98z" />
+              </svg>
+            </label>
           </div>
         </div>
-        {menuOpen && (
-          <nav aria-label="Mobile navigation" className={`flex flex-col border-b ${isLight ? "border-slate-200 bg-slate-50" : "border-[#2a2a2a] bg-[#111111]"}`}>
-            {["About", "Skills", "Projects", "Experience"].map((label) => (
+      </div>
+
+      <div className="sticky top-0 z-50 md:hidden navbar bg-base-100 border-b border-base-300 transition-colors">
+        <div className="navbar-start">
+          <span className="font-display text-base font-semibold tracking-tight text-base-content">
+            Erik Mauricio
+          </span>
+        </div>
+        <div className="navbar-end gap-1">
+          <label className="swap swap-rotate btn btn-ghost btn-circle">
+            <input
+              type="checkbox"
+              checked={isDark}
+              onChange={toggleTheme}
+              aria-label="Toggle theme"
+            />
+            <svg
+              className="swap-on size-5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5.64 17l-.71.71a1 1 0 101.41 1.41l.71-.71A1 1 0 005.64 17zM5 12a1 1 0 00-1-1H3a1 1 0 100 2h1a1 1 0 001-1zm8-9a1 1 0 00-1 1v1a1 1 0 102 0V4a1 1 0 00-1-1zm7.66 2.34a1 1 0 00-1.41 0l-.71.71a1 1 0 101.41 1.41l.71-.71a1 1 0 000-1.41zM17 5.64a1 1 0 00.71-.29l.71-.71a1 1 0 10-1.41-1.41l-.71.71A1 1 0 0017 5.64zM12 6a6 6 0 100 12 6 6 0 000-12zm9 5h-1a1 1 0 100 2h1a1 1 0 100-2zm-3.36 6.36a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41-1.41zM12 18a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" />
+            </svg>
+            <svg
+              className="swap-off size-5 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.7-3.4 1 1 0 00-1.31-1.31 10.14 10.14 0 108.73 18.3 10.1 10.1 0 005.5-5.1 1 1 0 00-.06-.98z" />
+            </svg>
+          </label>
+          <button
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+            className="btn btn-ghost btn-circle"
+          >
+            {menuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <ul className="menu md:hidden sticky top-16 z-40 w-full border-b border-base-300 bg-base-100">
+          {navLinks.map((label) => (
+            <li key={label}>
               <a
-                key={label}
                 href={`#${label.toLowerCase()}`}
                 onClick={() => setMenuOpen(false)}
-                className={`px-6 text-base font-medium border-b last:border-0 transition-colors min-h-16 flex items-center ${isLight ? "border-slate-100 text-slate-600 hover:bg-slate-100" : "border-[#1e1e1e] text-[#888888] hover:bg-[#1a1a1a] hover:text-[#e0e0e0]"}`}
+                className="min-h-16 text-base"
               >
                 {label}
               </a>
-            ))}
-          </nav>
-        )}
-      </div>
+            </li>
+          ))}
+        </ul>
+      )}
 
-      <section
-        id="about"
-        className={`w-full pt-32 pb-16 px-8 transition-colors ${bg}`}
-      >
-        <div className="flex flex-col lg:flex-row max-w-4xl mx-auto items-center justify-between gap-12">
-          <div className="order-3 lg:order-1 flex flex-col gap-6 max-w-lg text-center lg:text-left">
-            <h1
-              className={`text-7xl font-bold leading-none tracking-tight ${heading}`}
-            >
-              Erik Mauricio
-            </h1>
-            <p className={`text-lg leading-relaxed ${bodyText}`}>
-              I&apos;m Erik Mauricio, a Computer Science junior at Cornell
-              University minoring in Information Science with a concentration in
-              Interactive Technologies. I like working in the intersection of
-              AI, NLP, and full-stack engineering by building backend systems,
-              retrieval pipelines, and LLM-integrated products. Outside of
-              engineering, I serve as Corporate Chair for my SHPE chapter, and
-              spend my time at the gym, watching Barcelona FC, and
-              listening to Drake. Currently, I&apos;m seeking a Summer 2026/2027 internship in
-              software or data engineering.
-            </p>
-          </div>
-
-          <div className="order-1 lg:order-2 shrink-0 flex flex-col items-center gap-4">
-            <div className="overflow-hidden rounded-2xl ring-4 ring-[#0F4D92]">
+      <section id="about" className="w-full bg-base-100 px-4 pb-16 pt-24 transition-colors sm:px-8 md:pt-28">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+          <div className="avatar">
+            <div className="w-28 rounded-full ring-2 ring-base-300 ring-offset-4 ring-offset-base-100 sm:w-32">
               <Image
                 src="/images/headshot.jpg"
                 alt="Erik Mauricio"
-                width={280}
-                height={280}
-                className="rounded-2xl object-cover w-64 h-64 transition-transform duration-500 ease-out hover:scale-110"
+                width={256}
+                height={256}
+                priority
               />
-            </div>
-            <div className="order-2 flex items-center gap-2">
-              <a
-                href="mailto:em882@cornell.edu"
-                aria-label="Email Erik Mauricio"
-                className={`w-11 h-11 flex items-center justify-center text-3xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
-              >
-                <FaEnvelope />
-              </a>
-              <a
-                href="https://github.com/erik-mauricio"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Erik Mauricio GitHub"
-                className={`w-11 h-11 flex items-center justify-center text-3xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/erikmauricio/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Erik Mauricio LinkedIn"
-                className={`w-11 h-11 flex items-center justify-center text-3xl transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#a8a8a8] hover:text-[#f0f0f0]"}`}
-              >
-                <FaLinkedin />
-              </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section
-        id="experience"
-        className={`w-full px-8 py-16 transition-colors ${bg}`}
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2 className={`font-bold text-4xl mb-2 ${heading}`}>
-            What I&apos;ve done
-          </h2>
-          <div className={`border-t mb-8 ${divider}`} />
-          <div
-            className={`divide-y ${isLight ? "divide-slate-200" : "divide-[#2a2a2a]"}`}
-          >
-            {experiences.map((exp, i) => (
-              <ExperienceInfo
-                key={i}
-                company={exp.company}
-                title={exp.title}
-                subtitle={exp.subtitle}
-                description={exp.description}
-                date={exp.date}
-                isActive={exp.isActive}
-                techStack={exp.techStack}
-                theme={theme}
-              />
+          <h1 className="font-display text-2xl font-bold tracking-tight text-base-content sm:text-3xl">
+            Hello, I&apos;m Erik!!
+          </h1>
+          <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">
+            I&apos;m Erik Mauricio, a Computer Science junior at Cornell
+            University minoring in Information Science with a concentration in
+            Interactive Technologies. I like working in the intersection of
+            AI, NLP, and full-stack engineering by building backend systems,
+            retrieval pipelines, and LLM-integrated products. Outside of
+            engineering, I serve as Corporate Chair for my SHPE chapter, and
+            spend my time at the gym, watching Barcelona FC, and listening to
+            Drake. Currently, I&apos;m seeking a Spring/Summer 2027 internship
+            in software engineering.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+            {profileLinks.map(({ label, accessibleLabel, href, icon: Icon, external }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={accessibleLabel}
+                {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="link link-hover flex items-center gap-1.5 text-sm text-base-content/70"
+              >
+                <Icon className="size-4" aria-hidden="true" />
+                {label}
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      <main className={`w-full font-sans transition-colors ${bg}`}>
+      <section id="experience" className="w-full bg-base-100 px-8 py-16 transition-colors">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
+            What I&apos;ve done
+          </h2>
+          <div className="w-12 h-1 rounded-full bg-primary mb-8" />
+          <div className="divide-y divide-base-300">
+            {experiences.map((exp, i) => (
+              <Reveal key={i} delay={Math.min(i, 3) * 75}>
+                <ExperienceInfo
+                  company={exp.company}
+                  title={exp.title}
+                  subtitle={exp.subtitle}
+                  description={exp.description}
+                  date={exp.date}
+                  isActive={exp.isActive}
+                  techStack={exp.techStack}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <main className="w-full bg-base-100 font-sans transition-colors">
         <section id="projects" className="w-full px-8 py-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className={`font-bold text-4xl mb-2 ${heading}`}>
+            <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
               What I&apos;ve Built
             </h2>
-            <div className={`border-t mb-8 ${divider}`} />
+            <div className="w-12 h-1 rounded-full bg-primary mb-8" />
             <div className="flex flex-wrap gap-4">
               {projects.map((project, i) => (
-                <div key={i} className="w-full lg:w-[calc(50%-0.5rem)] flex">
-                  <Card theme={theme} className="flex-1">
-                    <div className="flex h-full flex-col gap-3">
-                      <div
-                        className={`overflow-hidden rounded-lg border ${isLight ? "border-slate-200 bg-slate-100" : "border-[#2a2a2a] bg-[#141414]"}`}
-                      >
+                <Reveal
+                  key={i}
+                  delay={(i % 2) * 100}
+                  className="w-full lg:w-[calc(50%-0.5rem)] flex"
+                >
+                  <Card className="flex-1">
+                    <div className="flex h-full flex-col">
+                      <div className="relative aspect-video w-full bg-base-200">
                         <Image
                           src={project.imageURI}
                           alt={`${project.title} preview`}
-                          width={1200}
-                          height={630}
-                          className="h-56 w-full object-contain"
+                          fill
+                          className="object-cover"
                         />
                       </div>
-                      <div>
-                        <h3 className={`font-bold text-base ${heading}`}>
+                      <div className="flex flex-1 flex-col gap-3 p-6">
+                        <h3 className="card-title font-display text-base text-base-content">
                           {project.title}
                         </h3>
-                      </div>
-                      <p className={`text-base leading-relaxed ${bodyText}`}>
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1">
-                        {project.techStack.map((tech, j) => (
-                          <Chip
-                            skill={tech}
-                            variant="tech"
-                            theme={theme}
-                            key={j}
-                          />
-                        ))}
-                      </div>
-                      <div className="mt-auto flex gap-2 pt-1">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noreferrer"
-                          className={`inline-flex items-center text-sm px-6 py-2 min-h-11 rounded-2xl border font-medium tracking-wide transition-colors ${cardBtn}`}
-                        >
-                          Github
-                        </a>
-                        {project.live && (
+                        <p className="text-base leading-relaxed text-base-content/80">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {project.techStack.map((tech, j) => (
+                            <Chip skill={tech} key={j} />
+                          ))}
+                        </div>
+                        <div className="card-actions mt-auto pt-1">
                           <a
-                            href={project.live}
+                            href={project.github}
                             target="_blank"
                             rel="noreferrer"
-                            className={`inline-flex items-center text-sm px-6 py-2 min-h-11 rounded-2xl border font-medium tracking-wide transition-colors ${cardBtn}`}
+                            className="btn btn-outline btn-sm"
                           >
-                            Live
+                            Github
                           </a>
-                        )}
+                          {project.live && (
+                            <a
+                              href={project.live}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="btn btn-outline btn-sm"
+                            >
+                              Live
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </Card>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -470,36 +429,19 @@ export default function Home() {
 
         <section id="skills" className="w-full px-8 py-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className={`font-bold text-4xl mb-2 ${heading}`}>What I use</h2>
-            <div className={`border-t mb-8 ${divider}`} />
+            <h2 className="font-display font-bold text-4xl mb-2 text-base-content">What I use</h2>
+            <div className="w-12 h-1 rounded-full bg-primary mb-8" />
             <div className="space-y-5">
               {[
-                {
-                  label: "Programming Languages",
-                  items: languages,
-                  variant: "programming" as const,
-                },
-                {
-                  label: "Frameworks & Libraries",
-                  items: technologies,
-                  variant: "framework" as const,
-                },
-                {
-                  label: "Tools and AI",
-                  items: tools,
-                  variant: "tool" as const,
-                },
-              ].map(({ label, items, variant }) => (
+                { label: "Programming Languages", items: languages },
+                { label: "Frameworks & Libraries", items: technologies },
+                { label: "Tools and AI", items: tools },
+              ].map(({ label, items }) => (
                 <div key={label}>
-                  <p className={`mb-2 ${chipLabel}`}>{label}</p>
+                  <p className="mb-2 font-bold text-base-content/80">{label}</p>
                   <div className="flex flex-wrap gap-2">
                     {items.map((item, i) => (
-                      <Chip
-                        skill={item}
-                        variant={variant}
-                        theme={theme}
-                        key={i}
-                      />
+                      <Chip skill={item} key={i} />
                     ))}
                   </div>
                 </div>
@@ -508,17 +450,13 @@ export default function Home() {
           </div>
         </section>
 
-        <footer
-          className={`w-full py-16 px-8 transition-colors ${isLight ? "bg-slate-100" : "bg-[#0d0d0d]"}`}
-        >
+        <footer className="footer footer-center w-full bg-base-200 px-8 py-16">
           <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-            <p className={`uppercase tracking-widest text-sm ${subText}`}>
+            <p className="uppercase tracking-widest text-sm text-base-content/60">
               Erik Mauricio
             </p>
-            <div className={`w-12 border-t ${divider}`} />
-            <div
-              className={`flex items-center gap-8 text-sm ${isLight ? "text-slate-600 hover:text-slate-900" : "text-[#888888]"}`}
-            >
+            <div className="w-12 border-t border-base-300" />
+            <nav className="flex items-center gap-8 text-sm text-base-content/70">
               {[
                 { label: "GitHub", href: "https://github.com/erik-mauricio" },
                 {
@@ -531,13 +469,13 @@ export default function Home() {
                 <a
                   key={label}
                   href={href}
-                  className={`min-h-11 flex items-center transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none rounded ${isLight ? "hover:text-slate-900" : "hover:text-[#cccccc]"}`}
+                  className="link link-hover min-h-11 flex items-center focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded"
                 >
                   {label}
                 </a>
               ))}
-            </div>
-            <p className={`text-sm ${subText}`}>© 2026 Erik Mauricio</p>
+            </nav>
+            <p className="text-sm text-base-content/60">© 2026 Erik Mauricio</p>
           </div>
         </footer>
       </main>

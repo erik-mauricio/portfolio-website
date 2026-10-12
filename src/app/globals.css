@@ -1,10 +1,86 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: sand --default, oxford --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "sand";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #F6F1EA;
+  --color-base-200: #EFE7DA;
+  --color-base-300: #E3D7C3;
+  --color-base-content: #3A2E22;
+  --color-primary: #A9754F;
+  --color-primary-content: #FBF7F2;
+  --color-secondary: #B08968;
+  --color-secondary-content: #FBF7F2;
+  --color-accent: #7A8B69;
+  --color-accent-content: #FBF7F2;
+  --color-neutral: #5C4A3A;
+  --color-neutral-content: #F6F1EA;
+  --color-info: #6E8FAE;
+  --color-info-content: #F6F1EA;
+  --color-success: #7A9D6F;
+  --color-success-content: #1D2A17;
+  --color-warning: #D9A441;
+  --color-warning-content: #2A1D07;
+  --color-error: #BF5B4D;
+  --color-error-content: #FBF7F2;
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "oxford";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0D1B2A;
+  --color-base-200: #152536;
+  --color-base-300: #1B263B;
+  --color-base-content: #E0E1DD;
+  --color-primary: #415A77;
+  --color-primary-content: #F5F6F5;
+  --color-secondary: #778DA9;
+  --color-secondary-content: #0D1B2A;
+  --color-accent: #5C8374;
+  --color-accent-content: #0D1B2A;
+  --color-neutral: #1B263B;
+  --color-neutral-content: #E0E1DD;
+  --color-info: #6E9CC4;
+  --color-info-content: #0D1B2A;
+  --color-success: #6FA98C;
+  --color-success-content: #0D1B2A;
+  --color-warning: #D9A86C;
+  --color-warning-content: #0D1B2A;
+  --color-error: #C1666B;
+  --color-error-content: #0D1B2A;
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display-sg);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

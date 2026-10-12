@@ -2,22 +2,14 @@ import { ReactNode } from "react";
 
 type CardProps = {
   children: ReactNode;
-  theme?: "dark" | "light";
   className?: string;
 };
 
-const themeStyles = {
-  dark: "bg-[#1a1a1a] border-[#2a2a2a] shadow-md",
-  light: "bg-white border-slate-200 shadow-sm",
-};
-
-export default function Card({
-  children,
-  theme = "dark",
-  className = "",
-}: CardProps) {
+export default function Card({ children, className = "" }: CardProps) {
   return (
-    <div className={`rounded-xl p-4 border ${themeStyles[theme]} ${className}`}>
+    <div
+      className={`card card-border bg-base-100 border-base-300 overflow-hidden transition-shadow duration-200 hover:shadow-md ${className}`}
+    >
       {children}
     </div>
   );

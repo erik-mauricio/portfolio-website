@@ -1,16 +1,16 @@
 "use client";
 import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 
-type Theme = "dark" | "light";
+type Theme = "oxford" | "sand";
 const THEME_KEY = "theme";
 
 const isTheme = (value: string | null): value is Theme =>
-  value === "dark" || value === "light";
+  value === "oxford" || value === "sand";
 
 const getThemeSnapshot = (): Theme => {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "oxford";
   const stored = window.localStorage.getItem(THEME_KEY);
-  return isTheme(stored) ? stored : "dark";
+  return isTheme(stored) ? stored : "oxford";
 };
 
 const subscribe = (callback: () => void) => {
@@ -30,23 +30,22 @@ const subscribe = (callback: () => void) => {
 };
 
 const ThemeContext = createContext<{ theme: Theme; toggleTheme: () => void }>({
-  theme: "dark",
+  theme: "oxford",
   toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const theme = useSyncExternalStore<Theme>(subscribe, getThemeSnapshot, () => "dark");
+  const theme = useSyncExternalStore<Theme>(subscribe, getThemeSnapshot, () => "oxford");
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle("dark", theme === "dark");
+    document.documentElement.setAttribute("data-theme", theme);
     window.localStorage.setItem(THEME_KEY, theme);
   }, [theme]);
 
   const toggleTheme = () => {
     if (typeof window === "undefined") return;
 
-    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
+    const nextTheme: Theme = theme === "oxford" ? "sand" : "oxford";
     window.localStorage.setItem(THEME_KEY, nextTheme);
     window.dispatchEvent(new Event("theme-change"));
   };
