@@ -16,49 +16,57 @@ export default function Home() {
 
   const languages = [
     "Python",
-    "Java",
-    "TypeScript",
     "JavaScript",
-    "PostgreSQL",
-    "MSSQL",
-    "MongoDB",
-    "HTML/CSS",
+    "TypeScript",
+    "Java",
+    "SQL",
+    "HTML",
+    "CSS",
   ];
 
   const technologies = [
     "React",
     "Next.js",
     "Node.js",
-    "FastAPI",
     "Express.js",
     "Flask",
-    "PyTest",
-    "NumPy",
+    "Streamlit",
     "Tailwind CSS",
+    "Socket.io",
+    "Pandas",
+    "NumPy",
+    "Mapbox GL",
   ];
 
   const tools = [
-    "Git",
+    "PostgreSQL",
+    "MongoDB",
     "Docker",
-    "AWS",
+    "Git",
     "REST APIs",
-    "WebSockets",
-    "RAG",
-    "Claude Code",
     "OpenAI API",
+    "Claude Code",
+    "RAG",
+    "TF-IDF",
+    "Word2Vec",
   ];
 
   const experiences = [
     {
-      company: "County of Orange",
-      title: "Data Engineer Intern",
+      company: "Cou nty of Orange",
+      title: "Software Engineer Intern",
       subtitle: "Santa Ana, CA",
       date: "May 2026 – Aug. 2026",
       isActive: false,
       description: [
-        "Built a full-stack Next.js data intake app with SSO, eliminating 60+ hours of annual Excel cleanup across 100 performance measures, and designed a normalized MSSQL database powering a real-time Power BI dashboard for 3M residents.",
+        `Built the backend infrastructure for a NYC meal-equity mapping platform,
+      developing REST API endpoints that join data across three relational tables to power
+      interactive sidebar and popup components for 204 partner organizations.
+      Integrated Mapbox and Geocoding APIs to render color-coded markers for 135 CBOs and 69 restaurants
+      across all five NYC boroughs, and designed a Deck.gl supply chain visualization using curved arrows and
+      a poverty-threshold tag system to highlight underserved communities.`,
       ],
-      techStack: ["Next.js", "MSSQL", "Power BI"],
+      techStack: ["Next.js", "Mapbox GL", "PostgreSQL"],
     },
     {
       company: "Cornell Hack4Impact",
@@ -67,20 +75,49 @@ export default function Home() {
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        "Build full-stack features for Rethink Food's nonprofit platform, including Next.js map components and Mapbox-powered views for 204 partner organizations, plus a Deck.gl visualization modeling food distribution serving 30K meals weekly.",
+        `Built the backend infrastructure for a NYC meal-equity mapping platform,
+        developing REST API endpoints that join data across three relational tables to power
+        interactive sidebar and popup components for 204 partner organizations.
+        Integrated Mapbox and Geocoding APIs to render color-coded markers for 135 CBOs and 69 restaurants
+        across all five NYC boroughs, and designed a Deck.gl supply chain visualization using curved arrows and
+        a poverty-threshold tag system to highlight underserved communities.`,
       ],
-      techStack: ["Next.js", "Mapbox GL", "Deck.gl"],
+      techStack: ["Next.js", "Mapbox GL", "PostgreSQL"],
     },
     {
       company: "Cornell University",
-      title: "Web Development Undergraduate Teaching Assistant",
+      title: "Undergraduate Teaching Assistant",
       subtitle: "INFO 2300 · FULL-STACK DEV",
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        "Lead weekly labs and office hours across 3 terms for 40+ students, supporting full-stack development exercises and projects.",
+        `Support 20+ students weekly in INFO 2300, Cornell's full-stack development course,
+        leading lab sections and office hours covering React, Node.js, Express.js, and MongoDB.
+        Evaluate 50+ submissions per cycle, providing individualized feedback aimed at strengthening
+        students' understanding of full-stack architecture.`,
       ],
-      techStack: ["React", "Node", "Express", "MongoDB"],
+      techStack: [
+        "React",
+        "Node",
+        "Express",
+        "MongoDB",
+        "Debugging",
+        "Teaching",
+      ],
+    },
+    {
+      company: "ThinkNeuro LLC",
+      title: "Software Engineering Intern",
+      subtitle: "REMOTE · EDTECH",
+      date: "Jun. 2025 – Aug. 2025",
+      isActive: false,
+      description: [
+        `Designed and built a B2B license dashboard in Streamlit and Python for an edtech startup,
+        giving partner institutions real-time visibility into student enrollment, kit shipments, and
+        engagement metrics. Automated CSV ingestion and cleaning pipelines with Pandas, replacing a
+        fully manual workflow and introducing automatic flagging of inactive records and data quality issues.`,
+      ],
+      techStack: ["Streamlit", "Pandas", "Python"],
     },
     {
       company: "SHPE",
@@ -89,7 +126,11 @@ export default function Home() {
       date: "May 2026 – Present",
       isActive: true,
       description: [
-        "Secured 4 corporate sponsorships and planned 3 recruiting and professional development events through outreach to 80+ companies.",
+        `Lead Cornell SHPE's corporate partnerships by managing outreach and relationships with 20+
+        companies while tracking sponsorship commitments for the 2026-2027 academic year.
+        Organize professional development programming including networking nights, info sessions, and
+         recruiting events for 30+ members, and oversee all corporate communications, ensuring partner
+          responses within 24 hours and keeping sponsorship records and invoices organized end-to-end.`,
       ],
       techStack: [],
     },
@@ -97,18 +138,18 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Sports Discovery Engine",
+      title: "Sports Team Finder",
       description:
-        "Full-stack sports discovery engine that interprets natural-language queries through a hybrid BM25/SVD/RAG pipeline, beating the strongest lexical baseline by 24.6% higher NDCG@10.",
+        "Search engine that lets users discover sports teams through natural language queries powered by a custom TF-IDF and cosine similarity pipeline.",
       date: "Feb. 2025 – Present",
       techStack: [
-        "Next.js",
-        "TypeScript",
         "Python",
-        "PyTest",
-        "BM25",
-        "SVD/LSA",
+        "Flask",
+        "TF-IDF",
+        "Cosine Similarity",
+        "SVD",
         "RAG",
+        "LLM",
       ],
       github: "https://github.com/moonlightplague/4300-Sports-Team-Finder",
       live: "https://sports-team-finder.4300showcase.infosci.cornell.edu/",
@@ -116,8 +157,8 @@ export default function Home() {
     },
     {
       title: "LeetCode Agent",
-      description:
-        "CLI tool powered by the Claude API that logs LeetCode attempts, identifies weak topics, and recommends what to practice next.",
+      description: `A CLI tool that uses Claude API to log your LeetCode attempts,
+        identify weak topics, and recommend what to practice next.`,
       date: "June 2025 – Aug. 2025",
       techStack: ["Python", "Claude API"],
       github: "https://github.com/erik-mauricio/leetcode-agent",
@@ -126,8 +167,8 @@ export default function Home() {
     },
     {
       title: "Rethink Food",
-      description:
-        "Full-stack interactive map platform visualizing NYC meal supply chains across 204 partner organizations, serving 30,000 meals weekly across all five boroughs.",
+      description: `Full-stack interactive map platform visualizing NYC meal supply chains across
+      204 partner organizations, serving 30,000 meals weekly across all five boroughs.`,
       date: "June 2025 – Aug. 2025",
       techStack: [
         "Next.js",
@@ -143,15 +184,15 @@ export default function Home() {
     {
       title: "Tiempos Perfectos",
       description:
-        "Full-stack adaptive English-learning app that models learner mastery with Bayesian Knowledge Tracing and adapts real-time AI speaking practice via FastAPI WebSockets.",
+        "Full-stack Spanish learning app with verb conjugation drills, reading comprehension exercises, and real-time AI conversation practice.",
       date: "June 2025 – Aug. 2025",
       techStack: [
         "React",
+        "MongoDB",
+        "Express.js",
+        "Node.js",
         "Tailwind CSS",
-        "Python",
-        "FastAPI",
-        "SQLAlchemy",
-        "PostgreSQL",
+        "Socket.io",
       ],
       github: "https://github.com/erik-mauricio/tiempos-perfectos",
       live: "",
@@ -159,8 +200,8 @@ export default function Home() {
     },
     {
       title: "Pelvic Health Association",
-      description:
-        "Centralized web platform serving as PPAC's digital hub for pelvic pain resources, provider directories, educational content, and community events at Cornell.",
+      description: `A centralized web platform serving as PPAC's digital hub for pelvic pain resources,
+        provider directories, educational content, and community events for Cornell. `,
       date: "June 2025 – Aug. 2025",
       techStack: ["React", "MongoDB", "Express.js", "Node.js", "SCSS"],
       github: "https://github.com/cornellh4i/PPAC",
@@ -179,7 +220,10 @@ export default function Home() {
             <ul className="menu menu-horizontal gap-1">
               {navLinks.map((label) => (
                 <li key={label}>
-                  <a href={`#${label.toLowerCase()}`} className="rounded-xl text-sm font-medium">
+                  <a
+                    href={`#${label.toLowerCase()}`}
+                    className="rounded-xl text-sm font-medium"
+                  >
                     {label}
                   </a>
                 </li>
@@ -215,7 +259,7 @@ export default function Home() {
 
       <div className="sticky top-0 z-50 md:hidden navbar bg-base-100 border-b border-base-300 transition-colors">
         <div className="navbar-start">
-          <span className="font-display text-xl font-semibold tracking-tight text-base-content">
+          <span className="font-display text-base font-semibold tracking-tight text-base-content">
             Erik Mauricio
           </span>
         </div>
@@ -228,14 +272,14 @@ export default function Home() {
               aria-label="Toggle theme"
             />
             <svg
-              className="swap-on size-6 fill-current"
+              className="swap-on size-5 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
               <path d="M5.64 17l-.71.71a1 1 0 101.41 1.41l.71-.71A1 1 0 005.64 17zM5 12a1 1 0 00-1-1H3a1 1 0 100 2h1a1 1 0 001-1zm8-9a1 1 0 00-1 1v1a1 1 0 102 0V4a1 1 0 00-1-1zm7.66 2.34a1 1 0 00-1.41 0l-.71.71a1 1 0 101.41 1.41l.71-.71a1 1 0 000-1.41zM17 5.64a1 1 0 00.71-.29l.71-.71a1 1 0 10-1.41-1.41l-.71.71A1 1 0 0017 5.64zM12 6a6 6 0 100 12 6 6 0 000-12zm9 5h-1a1 1 0 100 2h1a1 1 0 100-2zm-3.36 6.36a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41-1.41zM12 18a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" />
             </svg>
             <svg
-              className="swap-off size-6 fill-current"
+              className="swap-off size-5 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -254,9 +298,13 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6"
+                className="size-5"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
               </svg>
             ) : (
               <svg
@@ -265,7 +313,7 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6"
+                className="size-5"
               >
                 <path
                   strokeLinecap="round"
@@ -294,7 +342,10 @@ export default function Home() {
         </ul>
       )}
 
-      <section id="about" className="w-full bg-base-100 px-4 pb-16 pt-24 transition-colors sm:px-8 md:pt-28">
+      <section
+        id="about"
+        className="w-full bg-base-100 px-4 pb-16 pt-24 transition-colors sm:px-8 md:pt-28"
+      >
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
           <div className="avatar">
             <div className="w-28 rounded-full ring-2 ring-base-300 ring-offset-4 ring-offset-base-100 sm:w-32">
@@ -307,38 +358,44 @@ export default function Home() {
               />
             </div>
           </div>
-          <h1 className="font-display text-3xl font-bold tracking-tight text-base-content sm:text-4xl">
-            Hello, I&apos;m Erik!!
-          </h1>
+          <div>
+            <h1 className="font-display text-2xl font-bold tracking-tight text-base-content sm:text-3xl">
+              Hii, I'm Erik!!!
+            </h1>
+          </div>
           <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">
-            I&apos;m Erik Mauricio, a Computer Science junior at Cornell
-            University minoring in Information Science with a concentration in
-            Interactive Technologies. I like working in the intersection of
-            AI, NLP, and full-stack engineering by building backend systems,
-            retrieval pipelines, and LLM-integrated products. Outside of
-            engineering, I serve as Corporate Chair for my SHPE chapter, and
-            spend my time at the gym, watching Barcelona FC, and listening to
-            Drake. Currently, I&apos;m seeking a Spring/Summer 2027 internship
-            in software engineering.
+            I&apos;m a Computer Science junior at Cornell University minoring in
+            Information Science with a concentration in Interactive
+            Technologies. I like working in the intersection of AI, NLP, and
+            full-stack engineering by building backend systems, retrieval
+            pipelines, and LLM-integrated products. Outside of engineering, I
+            serve as Corporate Chair for my SHPE chapter, go to the gym, watch
+            FC Barcelona, and listen to Drake. Currently, I&apos;m seeking a
+            Winter/Summer 2027 internship in software engineering.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
-            {profileLinks.map(({ label, accessibleLabel, href, icon: Icon, external }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={accessibleLabel}
-                {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-                className="link link-hover flex items-center gap-1.5 text-sm text-base-content/70"
-              >
-                <Icon className="size-4" aria-hidden="true" />
-                {label}
-              </a>
-            ))}
+            {profileLinks.map(
+              ({ label, accessibleLabel, href, icon: Icon, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={accessibleLabel}
+                  {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  className="link link-hover flex items-center gap-1.5 text-sm text-base-content/70"
+                >
+                  <Icon className="size-4" aria-hidden="true" />
+                  {label}
+                </a>
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      <section id="experience" className="w-full bg-base-100 px-8 py-16 transition-colors">
+      <section
+        id="experience"
+        className="w-full bg-base-100 px-8 py-16 transition-colors"
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
             What I&apos;ve done
@@ -429,7 +486,9 @@ export default function Home() {
 
         <section id="skills" className="w-full px-8 py-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-display font-bold text-4xl mb-2 text-base-content">What I use</h2>
+            <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
+              What I use
+            </h2>
             <div className="w-12 h-1 rounded-full bg-primary mb-8" />
             <div className="space-y-5">
               {[
