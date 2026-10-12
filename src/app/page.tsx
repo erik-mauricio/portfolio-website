@@ -16,57 +16,49 @@ export default function Home() {
 
   const languages = [
     "Python",
-    "JavaScript",
-    "TypeScript",
     "Java",
-    "SQL",
-    "HTML",
-    "CSS",
+    "TypeScript",
+    "JavaScript",
+    "PostgreSQL",
+    "MSSQL",
+    "MongoDB",
+    "HTML/CSS",
   ];
 
   const technologies = [
     "React",
     "Next.js",
     "Node.js",
+    "FastAPI",
     "Express.js",
     "Flask",
-    "Streamlit",
-    "Tailwind CSS",
-    "Socket.io",
-    "Pandas",
+    "PyTest",
     "NumPy",
-    "Mapbox GL",
+    "Tailwind CSS",
   ];
 
   const tools = [
-    "PostgreSQL",
-    "MongoDB",
-    "Docker",
     "Git",
+    "Docker",
+    "AWS",
     "REST APIs",
-    "OpenAI API",
-    "Claude Code",
+    "WebSockets",
     "RAG",
-    "TF-IDF",
-    "Word2Vec",
+    "Claude Code",
+    "OpenAI API",
   ];
 
   const experiences = [
     {
-      company: "Cou nty of Orange",
-      title: "Software Engineer Intern",
+      company: "County of Orange",
+      title: "Data Engineer Intern",
       subtitle: "Santa Ana, CA",
       date: "May 2026 – Aug. 2026",
       isActive: false,
       description: [
-        `Built the backend infrastructure for a NYC meal-equity mapping platform,
-      developing REST API endpoints that join data across three relational tables to power
-      interactive sidebar and popup components for 204 partner organizations.
-      Integrated Mapbox and Geocoding APIs to render color-coded markers for 135 CBOs and 69 restaurants
-      across all five NYC boroughs, and designed a Deck.gl supply chain visualization using curved arrows and
-      a poverty-threshold tag system to highlight underserved communities.`,
+        "Built a full-stack Next.js data intake app with SSO, eliminating 60+ hours of annual Excel cleanup across 100 performance measures, and designed a normalized MSSQL database powering a real-time Power BI dashboard for 3M residents.",
       ],
-      techStack: ["Next.js", "Mapbox GL", "PostgreSQL"],
+      techStack: ["Next.js", "MSSQL", "Power BI"],
     },
     {
       company: "Cornell Hack4Impact",
@@ -75,49 +67,20 @@ export default function Home() {
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        `Built the backend infrastructure for a NYC meal-equity mapping platform,
-        developing REST API endpoints that join data across three relational tables to power
-        interactive sidebar and popup components for 204 partner organizations.
-        Integrated Mapbox and Geocoding APIs to render color-coded markers for 135 CBOs and 69 restaurants
-        across all five NYC boroughs, and designed a Deck.gl supply chain visualization using curved arrows and
-        a poverty-threshold tag system to highlight underserved communities.`,
+        "Build full-stack features for Rethink Food's nonprofit platform, including Next.js map components and Mapbox-powered views for 204 partner organizations, plus a Deck.gl visualization modeling food distribution serving 30K meals weekly.",
       ],
-      techStack: ["Next.js", "Mapbox GL", "PostgreSQL"],
+      techStack: ["Next.js", "Mapbox GL", "Deck.gl"],
     },
     {
       company: "Cornell University",
-      title: "Undergraduate Teaching Assistant",
+      title: "Web Development Undergraduate Teaching Assistant",
       subtitle: "INFO 2300 · FULL-STACK DEV",
       date: "Aug. 2025 – Present",
       isActive: true,
       description: [
-        `Support 20+ students weekly in INFO 2300, Cornell's full-stack development course,
-        leading lab sections and office hours covering React, Node.js, Express.js, and MongoDB.
-        Evaluate 50+ submissions per cycle, providing individualized feedback aimed at strengthening
-        students' understanding of full-stack architecture.`,
+        "Lead weekly labs and office hours across 3 terms for 40+ students, supporting full-stack development exercises and projects.",
       ],
-      techStack: [
-        "React",
-        "Node",
-        "Express",
-        "MongoDB",
-        "Debugging",
-        "Teaching",
-      ],
-    },
-    {
-      company: "ThinkNeuro LLC",
-      title: "Software Engineering Intern",
-      subtitle: "REMOTE · EDTECH",
-      date: "Jun. 2025 – Aug. 2025",
-      isActive: false,
-      description: [
-        `Designed and built a B2B license dashboard in Streamlit and Python for an edtech startup,
-        giving partner institutions real-time visibility into student enrollment, kit shipments, and
-        engagement metrics. Automated CSV ingestion and cleaning pipelines with Pandas, replacing a
-        fully manual workflow and introducing automatic flagging of inactive records and data quality issues.`,
-      ],
-      techStack: ["Streamlit", "Pandas", "Python"],
+      techStack: ["React", "Node", "Express", "MongoDB"],
     },
     {
       company: "SHPE",
@@ -126,11 +89,7 @@ export default function Home() {
       date: "May 2026 – Present",
       isActive: true,
       description: [
-        `Lead Cornell SHPE's corporate partnerships by managing outreach and relationships with 20+
-        companies while tracking sponsorship commitments for the 2026-2027 academic year.
-        Organize professional development programming including networking nights, info sessions, and
-         recruiting events for 30+ members, and oversee all corporate communications, ensuring partner
-          responses within 24 hours and keeping sponsorship records and invoices organized end-to-end.`,
+        "Secured 4 corporate sponsorships and planned 3 recruiting and professional development events through outreach to 80+ companies.",
       ],
       techStack: [],
     },
@@ -138,18 +97,18 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Sports Team Finder",
+      title: "Sports Discovery Engine",
       description:
-        "Search engine that lets users discover sports teams through natural language queries powered by a custom TF-IDF and cosine similarity pipeline.",
+        "Full-stack sports discovery engine that interprets natural-language queries through a hybrid BM25/SVD/RAG pipeline, beating the strongest lexical baseline by 24.6% higher NDCG@10.",
       date: "Feb. 2025 – Present",
       techStack: [
+        "Next.js",
+        "TypeScript",
         "Python",
-        "Flask",
-        "TF-IDF",
-        "Cosine Similarity",
-        "SVD",
+        "PyTest",
+        "BM25",
+        "SVD/LSA",
         "RAG",
-        "LLM",
       ],
       github: "https://github.com/moonlightplague/4300-Sports-Team-Finder",
       live: "https://sports-team-finder.4300showcase.infosci.cornell.edu/",
@@ -157,8 +116,8 @@ export default function Home() {
     },
     {
       title: "LeetCode Agent",
-      description: `A CLI tool that uses Claude API to log your LeetCode attempts,
-        identify weak topics, and recommend what to practice next.`,
+      description:
+        "CLI tool powered by the Claude API that logs LeetCode attempts, identifies weak topics, and recommends what to practice next.",
       date: "June 2025 – Aug. 2025",
       techStack: ["Python", "Claude API"],
       github: "https://github.com/erik-mauricio/leetcode-agent",
@@ -167,8 +126,8 @@ export default function Home() {
     },
     {
       title: "Rethink Food",
-      description: `Full-stack interactive map platform visualizing NYC meal supply chains across
-      204 partner organizations, serving 30,000 meals weekly across all five boroughs.`,
+      description:
+        "Full-stack interactive map platform visualizing NYC meal supply chains across 204 partner organizations, serving 30,000 meals weekly across all five boroughs.",
       date: "June 2025 – Aug. 2025",
       techStack: [
         "Next.js",
@@ -184,15 +143,15 @@ export default function Home() {
     {
       title: "Tiempos Perfectos",
       description:
-        "Full-stack Spanish learning app with verb conjugation drills, reading comprehension exercises, and real-time AI conversation practice.",
+        "Full-stack adaptive English-learning app that models learner mastery with Bayesian Knowledge Tracing and adapts real-time AI speaking practice via FastAPI WebSockets.",
       date: "June 2025 – Aug. 2025",
       techStack: [
         "React",
-        "MongoDB",
-        "Express.js",
-        "Node.js",
         "Tailwind CSS",
-        "Socket.io",
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
       ],
       github: "https://github.com/erik-mauricio/tiempos-perfectos",
       live: "",
@@ -200,8 +159,8 @@ export default function Home() {
     },
     {
       title: "Pelvic Health Association",
-      description: `A centralized web platform serving as PPAC's digital hub for pelvic pain resources,
-        provider directories, educational content, and community events for Cornell. `,
+      description:
+        "Centralized web platform serving as PPAC's digital hub for pelvic pain resources, provider directories, educational content, and community events at Cornell.",
       date: "June 2025 – Aug. 2025",
       techStack: ["React", "MongoDB", "Express.js", "Node.js", "SCSS"],
       github: "https://github.com/cornellh4i/PPAC",
@@ -360,7 +319,7 @@ export default function Home() {
           </div>
           <div>
             <h1 className="font-display text-2xl font-bold tracking-tight text-base-content sm:text-3xl">
-              Hii, I'm Erik!!!
+              Hii, I&apos;m Erik!!!
             </h1>
           </div>
           <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">
