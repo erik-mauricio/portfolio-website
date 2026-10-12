@@ -215,7 +215,7 @@ export default function Home() {
 
       <div className="sticky top-0 z-50 md:hidden navbar bg-base-100 border-b border-base-300 transition-colors">
         <div className="navbar-start">
-          <span className="font-display text-base font-semibold tracking-tight text-base-content">
+          <span className="font-display text-xl font-semibold tracking-tight text-base-content">
             Erik Mauricio
           </span>
         </div>
@@ -228,14 +228,14 @@ export default function Home() {
               aria-label="Toggle theme"
             />
             <svg
-              className="swap-on size-5 fill-current"
+              className="swap-on size-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
               <path d="M5.64 17l-.71.71a1 1 0 101.41 1.41l.71-.71A1 1 0 005.64 17zM5 12a1 1 0 00-1-1H3a1 1 0 100 2h1a1 1 0 001-1zm8-9a1 1 0 00-1 1v1a1 1 0 102 0V4a1 1 0 00-1-1zm7.66 2.34a1 1 0 00-1.41 0l-.71.71a1 1 0 101.41 1.41l.71-.71a1 1 0 000-1.41zM17 5.64a1 1 0 00.71-.29l.71-.71a1 1 0 10-1.41-1.41l-.71.71A1 1 0 0017 5.64zM12 6a6 6 0 100 12 6 6 0 000-12zm9 5h-1a1 1 0 100 2h1a1 1 0 100-2zm-3.36 6.36a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41-1.41zM12 18a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" />
             </svg>
             <svg
-              className="swap-off size-5 fill-current"
+              className="swap-off size-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -254,7 +254,7 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-5"
+                className="size-6"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
               </svg>
@@ -265,7 +265,7 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-5"
+                className="size-6"
               >
                 <path
                   strokeLinecap="round"
@@ -307,7 +307,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <h1 className="font-display text-2xl font-bold tracking-tight text-base-content sm:text-3xl">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-base-content sm:text-4xl">
             Hello, I&apos;m Erik!!
           </h1>
           <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">

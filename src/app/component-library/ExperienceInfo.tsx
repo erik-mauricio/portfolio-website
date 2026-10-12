@@ -21,7 +21,7 @@ export default function ExperienceInfo({
 }: ExperienceInfoProps) {
   return (
     <div className="flex flex-col gap-3 py-6">
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <h3 className="font-display text-lg font-bold text-base-content">
           {title} <span className="font-semibold text-primary">@ {company}</span>
         </h3>
