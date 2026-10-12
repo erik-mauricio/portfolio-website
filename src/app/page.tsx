@@ -359,7 +359,7 @@ export default function Home() {
           <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
             What I&apos;ve done
           </h2>
-          <div className="w-12 h-1 rounded-full bg-primary mb-8" />
+          
           <div className="divide-y divide-base-300">
             {experiences.map((exp, i) => (
               <Reveal key={i} delay={Math.min(i, 3) * 75}>
@@ -384,7 +384,6 @@ export default function Home() {
             <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
               What I&apos;ve Built
             </h2>
-            <div className="w-12 h-1 rounded-full bg-primary mb-8" />
             <div className="flex flex-wrap gap-4">
               {projects.map((project, i) => (
                 <Reveal
@@ -448,7 +447,7 @@ export default function Home() {
             <h2 className="font-display font-bold text-4xl mb-2 text-base-content">
               What I use
             </h2>
-            <div className="w-12 h-1 rounded-full bg-primary mb-8" />
+          
             <div className="space-y-5">
               {[
                 { label: "Programming Languages", items: languages },
